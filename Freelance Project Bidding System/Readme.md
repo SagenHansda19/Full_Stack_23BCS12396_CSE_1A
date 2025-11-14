@@ -1,86 +1,100 @@
-# Freelance Project Bidding System
+# Crowdsourcing Marketplace using Spring Boot
+To demonstrate the use of stateless RESTful web services by creating prototype of Freelancer web application. (www.freelancer.com).
 
-A full-stack web application that simulates a real-world freelancing platform. It enables employers to post projects and manage tasks using a Kanban board, while freelancers can browse projects and place bids.
+```
+Individual assignment for CMPE 273 - Enterprise Distributed Systems course during Software Engineering.
+```
 
-**Student:** Sagen Hansda
-**UID:** 23BCS12396
+## User stories:
 
----
+* I can Sign Up, Sign In and Logout from application.
+* As an authenticated user, I can bid on projects posted.
+* As an authenticated user, I can Post Project and get bids from other users.
+* As an authenticated user, I can Hire freelancer on the basis of bids received.
+* As an authenticated user, I can Check open projects and bid on projects posted by other users.
+* As an authenticated user, I can Check project completion date when freelancer is hired.
+* As an authenticated user, I can Create and edit profile information.
 
-## Features
+> For Detailed Description check [Project Report](https://docs.google.com/document/d/1oX7vKfWftTV8vgo_s_IeOpl5158lZsKEFVypW7q8KHs/edit?usp=sharing)
 
--   **User Authentication:** Secure user registration and login using JWT (JSON Web Tokens).
--   **Role-Based Access:** Distinct dashboards and permissions for **Employers** and **Freelancers**.
--   **Project Management:** Employers can create, update, and view their projects.
--   **Task Management (Kanban):** Projects include a task board for managing workflow (To Do, In Progress, Done).
--   **Bidding System:** Freelancers can browse available projects and submit competitive bids.
--   **Real-time Communication (Future Scope):** WebSocket-based chat for project discussions.
 
----
+## System Design
+> Applications uses a simple Client-Server architecture
 
-## Tech Stack
+* Client Side : ReactJS (HTML5 and Bootstrap)
+```
+Consists of total 20 React components. 
+Effective modularisation is used in each component so as to increase reusability.
+```
 
-| Category     | Technology                                             |
-| :----------- | :----------------------------------------------------- |
-| **Frontend** | React, Vite, Tailwind CSS / Material UI                |
-| **Backend** | Java 17, Spring Boot, Spring Security, Spring Data JPA |
-| **Database** | PostgreSQL                                             |
+* Server Side : Java, Springboot, Hibernate
 
----
+```
+Consists of 18 APIs to serve client requests.
+```
+
+* Database :  MySQL
+```
+Consists of mainly 4 tables.
+User : To store user related information
+Project : To stores project details posted by user.
+Attachments : Stores server path for attachments like project document and user profile pictures
+Bid : To store bids
+```
+
 
 ## System Architecture
-
-The application follows a standard client-server architecture:
-
-1.  The **React frontend** acts as the client, providing a dynamic user interface.
-2.  It communicates with the backend via a **RESTful API**.
-3.  The **Spring Boot backend** handles all business logic, data processing, and authentication.
-4.  A **PostgreSQL** database persists all application data.
+![Architecture](/architecture.jpg)
 
 
+### Technology stack
 
-[Image of a simple web application architecture diagram]
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Front-End</td>
+		<td>React, Redux, React Router, Bootstrap, HTML5, CSS3, Javascript ( ES6 )</td>
+	</tr>
+	<tr>
+		<td>Back-End</td>
+		<td>Java, Springboot, Hibernate</td>
+	</tr>
+	<tr>
+		<td>API Testing</td>
+		<td>JUnit, Postman</td>
+	</tr>
+	<tr>
+		<td>Database</td>
+		<td>MySQL</td>
+	</tr>
+	<tr>
+		<td>Performance Testing</td>
+		<td>JMeter</td>
+	</tr>
+  	<tr>
+		<td>NPM Modules</td>
+		<td>BCrypt, Multiparty, Axios</td>
+	</tr>
+</tbody>
+</table>
+<br/>
 
 
----
+### Steps to run application:
 
-## 🚀 Getting Started
+* Create database schema 
+* Go to path : react-client
+* npm install
+* npm start 
+> This will start ReactJS server on 3000
 
-Follow these steps to get the project up and running on your local machine.
+## 📝 Author
+[<img src="" align="right" height="100">](https://github.com/heyitsvajid)
 
-### 1. Run the Backend Server
-
--   Ensure your PostgreSQL database is running and accessible.
--   Open the `Backend/freelance` directory in IntelliJ IDEA.
--   Run the `FreelanceApplication.java` file to start the server.
--   The backend will be available on `http://localhost:8080`.
-
-### 2. Run the Frontend Application
-
-1.  **Navigate to the frontend directory:**
-    ```bash
-    cd Frontend
-    ```
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-3.  **Start the development server:**
-    ```bash
-    npm run dev
-    ```
--   The frontend will be available at `http://localhost:5173`.
-
----
-
-## API Endpoints
-
-Here are some of the key API endpoints:
-
-| Method | Endpoint                    | Description                       |
-| :----- | :-------------------------- | :-------------------------------- |
-| `POST` | `/api/auth/register`        | Registers a new user.             |
-| `POST` | `/api/auth/login`           | Logs in a user and returns a JWT. |
-| `POST` | `/api/projects`             | Creates a new project.            |
-| `GET`  | `/api/projects/{projectId}` | Fetches details for a single project. |
-| `POST` | `/api/projects/{projectId}/tasks` | Creates a new task for a project. |
+##### Vajid Kagdi <kbd> [Github](https://github.com/heyitsvajid) / [LinkedIn](https://www.linkedin.com/in/heyitsvajid) / [E-Mail](mailto:vajid9@gmail.com)</kbd>
